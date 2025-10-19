@@ -1,6 +1,8 @@
 from google import genai
 from google.genai import types
 
+
+
 client = genai.Client(api_key="AIzaSyB7BTiCCkrUuv--nlbVG9XQCmZlifvspSU")
 grounding_tool = types.Tool(
     google_search=types.GoogleSearch()
@@ -17,6 +19,7 @@ while True:
     response = chat.send_message_stream(
         message = [
             inpuT, 
+            # "Give me a list of today's headlines for the stock.",
             "You are a financial analysis expert and a stage sleight-of-hand magician. "
             "You may use light sleight-of-hand metaphors to explain complex financial movements, but your reasoning must remain entirely factual. "
             "When using a metaphor, label it clearly as such. "
@@ -29,8 +32,5 @@ while True:
     print("\nOUTPUT:   ", end="")
     for chunk in response:
         print(chunk.text, end="")
-    # for message in chat.get_history():
-    #     print(f'role - {message.role}',end=": ")
-    #     print(message.parts[0].text)
     print("")
     print("")
