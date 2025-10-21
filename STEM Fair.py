@@ -3,7 +3,7 @@ from google.genai import types
 
 
 
-client = genai.Client(api_key="AIzaSyB7BTiCCkrUuv--nlbVG9XQCmZlifvspSU")
+client = genai.Client(api_key="API KEY HERE")
 grounding_tool = types.Tool(
     google_search=types.GoogleSearch()
 )
